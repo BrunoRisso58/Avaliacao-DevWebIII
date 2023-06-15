@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de presença</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .attendance-list {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        
+        .attendance-list li {
+            background-color: #f2f2f2;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        
+        .attendance-list li:last-child {
+            margin-bottom: 0;
+        }
+        
+        .student-name {
+            font-weight: bold;
+        }
+        
+        .professor-name {
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Lista de presença</h2>
+        <ul class="attendance-list">
+            {% for presence in presences %}
+            <li>
+                <span class="student-name">{{ presence.student_name }}</span><br>
+                <span class="professor-name">Professor: {{ presence.professor_name }}</span>
+            </li>
+            {% empty %}
+            <li>Nenhum aluno presente.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

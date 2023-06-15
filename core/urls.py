@@ -4,4 +4,5 @@ from . import views
 # URLConf
 urlpatterns = [
 	path('', views.presenceForm),
+    path('listar', views.presentStudents)
 ]

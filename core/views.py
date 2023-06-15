@@ -17,3 +17,7 @@ def presenceForm(request):
         form = PresenceForm()
         
     return render(request, 'form.html', {'form': PresenceForm()})
+
+def presentStudents(request):
+    presences = PresenceModel.objects.all()
+    return render(request, 'students.html', {'presences': presences})
